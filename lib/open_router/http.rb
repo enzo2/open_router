@@ -45,10 +45,13 @@ module OpenRouter
     # @return [Proc] An outer proc that iterates over a raw stream, converting it to JSON.
     def to_json_stream(user_proc:)
       proc do |chunk, _|
+        Rails.logger.debug("CHUNK: #{chunk.inspect}")
         chunk.scan(/(?:data|error): (\{.*\})/i).flatten.each do |data|
+          Rails.logger.debug("DATA: #{data.inspect}")
           user_proc.call(JSON.parse(data))
-        rescue JSON::ParserError
+        rescue JSON::ParserError => e
           # Ignore invalid JSON.
+          Rails.logger.error("JSON PARSER ERROR #{e}")
         end
       end
     end
