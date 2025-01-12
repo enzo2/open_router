@@ -30,7 +30,6 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "activesupport", ">= 6.0"
   spec.add_dependency "event_stream_parser", ">= 1"
-  spec.add_dependency "dotenv", ">= 2"
   spec.add_dependency "faraday", ">= 1"
   spec.add_dependency "faraday-multipart", ">= 1"
 end
