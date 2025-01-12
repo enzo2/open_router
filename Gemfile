@@ -8,7 +8,6 @@ gemspec
 gem "activesupport", ">= 6.0"
 
 group :development do
-  gem "dotenv", ">= 2"
   gem "pry", ">= 0.14"
   gem "rake", "~> 13.0"
   gem "rspec", "~> 3.0"
